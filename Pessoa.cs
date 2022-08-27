@@ -8,7 +8,6 @@ namespace sistema{
         public string? Nome { get; set; }
         public string? Endereco { get; set; }
         public bool EnderecoComercial { get; set; }
-        public int MyProperty { get; set; }
         public void PagarImposto() {
         }
     }
