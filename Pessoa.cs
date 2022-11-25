@@ -5,10 +5,23 @@ using System.Threading.Tasks;
 
 namespace sistema{
     public class pessoa{
+
         public string? Nome { get; set; }
-        public string? Endereco { get; set; }
-        public bool EnderecoComercial { get; set; }
-        public void PagarImposto() {
+
+        public Endereco endereco { get; set; }
+
+        public abstract float PagarImposto(float rendimento);
+
+        public void VerificarPastaArquivo(string caminho) {
+
+            string pasta = caminho.Split("/")[0];
+
+            if (!Directory.Exists(pasta)){
+                Directory.CreateDirectory(pasta);
+            }
+            if (!File.Exists(caminho)){
+                using(File.Create(caminho));
+            }
         }
     }
 }
